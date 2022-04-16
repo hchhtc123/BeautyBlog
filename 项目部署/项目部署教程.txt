@@ -1,0 +1,57 @@
+# 修改项目配置
+
+1.进入BeautyBlog\src\main\resources修改application.yml和application-pro.yml文件
+
+application.yml修改：配置文件由dev改为pro
+spring:
+  profiles:
+    active: pro
+
+application-pro.yml修改：
+修改server端口号默认端口80端口被占用
+修改datasource中username和password为服务器中创建数据库的账号和密码
+
+2.打开pom.xml文件，在<description>下添加<packaging>jar</packaging>配置项目打包成jar包
+
+运行maven install
+
+在target目录下找到jar后缀文件即为项目打包文件
+
+# 服务器部署
+
+1.安装宝塔便于操作管理
+
+2.在宝塔面板内新建数据库myblog，注意配置账户和密码
+
+3.在服务器管理端开放90端口
+
+4.在/www/wwwroot/目录下新建文件夹BeautyBlog上传打包好的jar包
+
+5.运行jar包部署
+
+cd /www/wwwroot/BeautyBlog
+
+nohup java -jar BeautyBlog-0.0.1-SNAPSHOT.jar &
+
+访问服务器域名:90测试是否正常，异常的话可以查看日志文件debug
+
+6.配置域名
+
+申请域名，解析到服务器
+
+修改项目部署文件夹下的BeautyBlog.conf文件，修改完成后上传到/etc/nginx/conf.d/目录下
+
+打开nginx的配置文件，在"http{"中添加include /etc/nginx/conf.d/*.conf
+
+重载nginx服务
+
+此时访问服务器域名即可访问项目，无需添加端口号
+
+
+
+
+
+
+
+
+

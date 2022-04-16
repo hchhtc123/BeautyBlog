@@ -1,0 +1,25 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+  messages:
+    basename: i18n/messages
+
+server:
+  tomcat:
+    min-spare-threads: 20
+    max-threads: 100
+  connection-timeout: 5000
+  port: 90
+  session:
+    timeout: 864000   #session自动过期时间为10天，单位秒 60*60*24*10；记录登录状态
+
+comment.avatar: /images/avatar.png
+
+message.avatar: /images/avatar.png
+
+cookie.time: 864000 #设置cookie的生命周期为十天，单位秒。 60*60*24*10
+
+
+
