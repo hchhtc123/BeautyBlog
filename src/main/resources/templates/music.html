@@ -1,133 +1,191 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoPlaying Club-音乐盒</title>
-    <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
-    <link rel="stylesheet" href="../static/lib/music/css/zplayer.min.css" th:href="@{/lib/music/css/zplayer.min.css}" />
-    <script type="text/javascript" src="../static/lib/music/js/zplayer.min.js" th:src="@{/lib/music/js/zplayer.min.js}"></script>
-    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoPlaying Club-音乐盒</title>
+<link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}"
+	rel="icon" type="image/x-ico">
+<link rel="stylesheet" href="../static/lib/Semantic-UI-2.2.4/dist/semantic.min.css" th:href="@{/lib/Semantic-UI-2.2.4/dist/semantic.min.css}">
+<link rel="stylesheet" href="../static/css/me.css"
+	th:href="@{/css/me.css}">
+<link rel="stylesheet" href="../static/lib/music/css/zplayer.min.css"
+	th:href="@{/lib/music/css/zplayer.min.css}" />
+<script type="text/javascript"
+	src="../static/lib/music/js/zplayer.min.js"
+	th:src="@{/lib/music/js/zplayer.min.js}"></script>
+<script src="../static/lib/jquery-3.2.1/dist/jquery.min.js" th:src="@{/lib/jquery-3.2.1/dist/jquery.min.js}"></script>
+<script src="../static/lib/Semantic-UI-2.2.4/dist/semantic.min.js" th:src="@{/lib/Semantic-UI-2.2.4/dist/semantic.min.js}"></script>
 
 </head>
 <body>
 
-<!--导航-->
-<nav class="gird-header">
-    <div class="ui container">
-        <div class="ui inverted secondary stackable menu">
-            <h2 class="ui olive header item" style="font-family: STSong">SoPlaying Club</h2>
-            <!--<div class="right m-item item m-mobile-hide">-->
-                <a href="#" target="_blank" th:href="@{/}" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
-                <a href="#" target="_blank" th:href="@{/types/-1}" class="m-item item m-mobile-hide"><i class="clone outline icon"></i>分类</a>
-                <a href="#" target="_blank" th:href="@{/archives}" class="m-item item m-mobile-hide"><i class="clock icon"></i>时间轴</a>
-                <a href="#" th:href="@{/music}"  class="active m-item item m-mobile-hide"><i class="music icon"></i>音乐盒</a>
-                <a href="#" target="_blank" th:href="@{/message}" class="m-item item m-mobile-hide"><i class="book icon"></i>留言板</a>
-                <a href="#" target="_blank" th:href="@{/friends}" class="m-item item m-mobile-hide"><i class="pencil alternate icon"></i>友链</a>
-                <a href="#" target="_blank" th:href="@{/picture}" class="m-item item m-mobile-hide"><i class="image icon"></i>照片墙</a>
-                <a href="#" target="_blank" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
-                <a href="#" th:href="@{/admin}" class="m-item item m-mobile-hide"><i class=" shield alternate icon"></i>后台管理</a>
-            <!--</div>-->
-            <div class="right m-item item m-mobile-hide">
-                <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
-                    <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
-                        <input style="color: white" type="text" name="query" placeholder="Search...." th:value="${query}">
-                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
-        <i class="sidebar icon"></i>
-    </a>
-</nav>
+	<!--导航-->
+	<nav class="gird-header">
+		<div class="ui container">
+			<div class="ui inverted secondary stackable menu">
+				<h2 class="ui olive header item" style="font-family: STSong">SoPlaying
+					Club</h2>
+				<!--<div class="right m-item item m-mobile-hide">-->
+				<a href="#" target="_blank" th:href="@{/}"
+					class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a> <a
+					href="#" target="_blank" th:href="@{/types/-1}"
+					class="m-item item m-mobile-hide"><i class="clone outline icon"></i>分类</a>
+				<a href="#" target="_blank" th:href="@{/archives}"
+					class="m-item item m-mobile-hide"><i class="clock icon"></i>时间轴</a>
+				<a href="#" th:href="@{/music}"
+					class="active m-item item m-mobile-hide"><i class="music icon"></i>音乐盒</a>
+				<a href="#" target="_blank" th:href="@{/message}"
+					class="m-item item m-mobile-hide"><i class="book icon"></i>留言板</a>
+				<a href="#" target="_blank" th:href="@{/friends}"
+					class="m-item item m-mobile-hide"><i
+					class="pencil alternate icon"></i>友链</a> <a href="#" target="_blank"
+					th:href="@{/picture}" class="m-item item m-mobile-hide"><i
+					class="image icon"></i>照片墙</a> <a href="#" target="_blank"
+					th:href="@{/about}" class="m-item item m-mobile-hide"><i
+					class="info icon"></i>关于我</a> <a href="#" th:href="@{/admin}"
+					class="m-item item m-mobile-hide"><i
+					class=" shield alternate icon"></i>后台管理</a>
+				<!--</div>-->
+				<div class="right m-item item m-mobile-hide">
+					<form name="search" action="#" th:action="@{/search}" method="post"
+						target="_blank">
+						<div class="ui icon transparent input m-margin-tb-tiny"
+							style="color: white">
+							<input style="color: white" type="text" name="query"
+								placeholder="Search...." th:value="${query}"> <i
+								onclick="document.forms['search'].submit()"
+								class="search link icon"></i>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<a href="#"
+			class="ui menu toggle black icon button m-right-top m-mobile-show">
+			<i class="sidebar icon"></i>
+		</a>
+	</nav>
 
-<!--顶部图片-->
-<div class="m-bg-type_outer" style="width: 100%;height: 40%">
-	<img src="../static/images/playbg.jpg" th:src="@{/images/playbg.jpg}" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
-    <div class="m-bg-class_cover">
-        <div class="ui container" style="position: relative ;bottom: -540px;">
-            <div class="m-font-size-title m-right-bottom" align="center" style="font-family:'STXingkai'">音乐盒</div>
-            <div class="m-font-size-text-init-title m-margin-top" align="center">在一切变好之前，我们总要经历一些不开心的事情，耐心点，给好运一点时间！</div>
-        </div>
-    </div>
-</div>
+	<!--顶部图片-->
+	<div class="m-bg-type_outer" style="width: 100%; height: 40%">
+		<img src="../static/images/playbg.jpg" th:src="@{/images/playbg.jpg}"
+			alt="" class="ui m-bg image" style="width: 100%; height: 100%">
+		<div class="m-bg-class_cover">
+			<div class="ui container" style="position: relative; bottom: -540px;">
+				<div class="m-font-size-title m-right-bottom" align="center"
+					style="font-family: 'STXingkai'">音乐盒</div>
+				<div class="m-font-size-text-init-title m-margin-top" align="center">在一切变好之前，我们总要经历一些不开心的事情，耐心点，给好运一点时间！</div>
+			</div>
+		</div>
+	</div>
 
-<div class="ui m-margin- m-opacity" align="center">
-	<br>
-    <div class="ui container box-shadow-max">
-        <div id="player2" style="height:500px;"></div>
-    </div>
-    <br>
-</div>
+	<div class="ui m-margin- m-opacity" align="center">
+		<br>
+		<div class="ui container box-shadow-max">
+			<div id="player2"></div>
+		</div>
+	</div>
 
-<!--底部栏-->
-<footer class="ui inverted vertical segment m-padded-tb-massive m-opacity">
-    <!--容器-->
-    <div class="ui center aligned container">
-        <div class="ui inverted divided stackable grid">
-            <div class="four wide column">
-                <div style="font-size: large;font-weight: bold" class="ui inverted m-text-thin m-text-spaced m-margin-top-max" >联系我</div>
-                <div class="ui inverted link list">
-                    <div href="#" class="m-text-thin">Email：1075558916@qq.com</div>
-                    <div href="#" class="m-text-thin">QQ：1075558916</div>
-                </div>
-            </div>
+	<!--底部栏-->
+	<footer
+		class="ui inverted vertical segment m-padded-tb-massive m-opacity">
+		<!--容器-->
+		<div class="ui center aligned container">
+			<div class="ui inverted divided stackable grid">
+				<div class="four wide column">
+					<div style="font-size: large; font-weight: bold"
+						class="ui inverted m-text-thin m-text-spaced m-margin-top-max">联系我</div>
+					<div class="ui inverted link list">
+						<div href="#" class="m-text-thin">Email：1075558916@qq.com</div>
+						<div href="#" class="m-text-thin">QQ：1075558916</div>
+					</div>
+				</div>
 
-            <div class="four wide column" >
-                <div class="ui inverted link list">
-                    <div class="item">
-                        <!--微信二维码-->
-                        <div style="font-size: large;font-weight: bold" class="ui inverted m-text-thin m-text-spaced " >联系WeChat</div>
-                        <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}"  class="ui m-margin-top rounded image" alt="" style="width: 110px">
-                    </div>
-                </div>
-            </div>
+				<div class="four wide column">
+					<div class="ui inverted link list">
+						<div class="item">
+							<!--微信二维码-->
+							<div style="font-size: large; font-weight: bold"
+								class="ui inverted m-text-thin m-text-spaced ">联系WeChat</div>
+							<img src="../static/images/wechat.jpg"
+								th:src="@{/images/wechat.jpg}"
+								class="ui m-margin-top rounded image" alt=""
+								style="width: 110px">
+						</div>
+					</div>
+				</div>
 
-            <div class="four wide column">
-                <div class="ui inverted link list">
-                    <div class="item">
-                        <!--qq二维码-->
-                        <div style="font-size: large;font-weight: bold" class="ui inverted m-text-thin m-text-spaced " >联系QQ</div>
-                        <img src="../static/images/qq.jpg" th:src="@{/images/qq.jpg}"  class="ui m-margin-top rounded image" alt="" style="width: 110px">
-                    </div>
-                </div>
-            </div>
-            <!--博客运行时间统计-->
-            <div class="four wide column">
-                <div style="font-size: large;font-weight: bold" class="ui inverted  m-text-thin m-text-spaced m-margin-top">博客信息</div>
-                <!--<p id="htmer_time" class="item m-text-thin"></p>-->
-                <div id="blog-message">
-                    <div class="ui inverted link list" style="align-content: center;margin-top: 10px" th:fragment="blogMessage">
-                        <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
-                            文章总数： <h2 class="ui orange header m-inline-block m-margin-top-null" style="font-size:medium;" th:text="${blogTotal}"> 14 </h2> 篇
-                        </div>
-                        <div class="m-text-thin" style="text-align: left;margin-left: 75px">
-                            访问总数： <h2 class="ui orange header m-inline-block m-margin-top-null" style="font-size:medium;" th:text="${blogViewTotal}"> 14 </h2> 次
-                        </div>
-                        <div class="m-text-thin" style="text-align: left;margin-left: 75px">
-                            评论总数： <h2 class="ui orange header m-inline-block m-margin-top-null" style="font-size:medium;" th:text="${blogCommentTotal}"> 14 </h2> 条
-                        </div>
-                        <div class="m-text-thin" style="text-align: left;margin-left: 75px">
-                            留言总数： <h2 class="ui orange header m-inline-block m-margin-top-null" style="font-size:medium;" th:text="${blogMessageTotal}"> 14 </h2> 条
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui inverted section divider"></div>
-        <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">我的博客已运行：<span id="htmer_time" class="item m-text-thin"></span> (*๓´╰╯`๓)</div>
-        <a rel="nofollow" href="http://www.chaicp.com/" target="_blank">粤ICP备2021159040号</a>
-    </div>
-    </div>
+				<div class="four wide column">
+					<div class="ui inverted link list">
+						<div class="item">
+							<!--qq二维码-->
+							<div style="font-size: large; font-weight: bold"
+								class="ui inverted m-text-thin m-text-spaced ">联系QQ</div>
+							<img src="../static/images/qq.jpg" th:src="@{/images/qq.jpg}"
+								class="ui m-margin-top rounded image" alt=""
+								style="width: 110px">
+						</div>
+					</div>
+				</div>
+				<!--博客运行时间统计-->
+				<div class="four wide column">
+					<div style="font-size: large; font-weight: bold"
+						class="ui inverted  m-text-thin m-text-spaced m-margin-top">博客信息</div>
+					<!--<p id="htmer_time" class="item m-text-thin"></p>-->
+					<div id="blog-message">
+						<div class="ui inverted link list"
+							style="align-content: center; margin-top: 10px"
+							th:fragment="blogMessage">
+							<div class="m-text-thin"
+								style="text-align: left; margin-left: 75px;">
+								文章总数：
+								<h2 class="ui orange header m-inline-block m-margin-top-null"
+									style="font-size: medium;" th:text="${blogTotal}">14</h2>
+								篇
+							</div>
+							<div class="m-text-thin"
+								style="text-align: left; margin-left: 75px">
+								访问总数：
+								<h2 class="ui orange header m-inline-block m-margin-top-null"
+									style="font-size: medium;" th:text="${blogViewTotal}">14</h2>
+								次
+							</div>
+							<div class="m-text-thin"
+								style="text-align: left; margin-left: 75px">
+								评论总数：
+								<h2 class="ui orange header m-inline-block m-margin-top-null"
+									style="font-size: medium;" th:text="${blogCommentTotal}">
+									14</h2>
+								条
+							</div>
+							<div class="m-text-thin"
+								style="text-align: left; margin-left: 75px">
+								留言总数：
+								<h2 class="ui orange header m-inline-block m-margin-top-null"
+									style="font-size: medium;" th:text="${blogMessageTotal}">
+									14</h2>
+								条
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui inverted section divider"></div>
+			<div style="color: #F08047; margin-top: -18px"
+				class="ui inverted m-text-thin m-text-spaced">
+				我的博客已运行：<span id="htmer_time" class="item m-text-thin"></span>
+				(*๓´╰╯`๓)
+			</div>
+			<a rel="nofollow" href="http://www.chaicp.com/" target="_blank">粤ICP备2021159040号</a>
+		</div>
+		</div>
 
-</footer>
+	</footer>
 
-<script>
+    <script src="../static/lib/jquery-3.2.1/dist/jquery.min.js" th:src="@{/lib/jquery-3.2.1/dist/jquery.min.js}"></script>
+    <script src="../static/lib/Semantic-UI-2.2.4/dist/semantic.min.js" th:src="@{/lib/Semantic-UI-2.2.4/dist/semantic.min.js}"></script>
+	<script>
 
 	$('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
 
@@ -417,76 +475,6 @@
                 "[04:42.62]温柔的风\n" +
                 "[04:44.69]轻轻地轻轻地吹"
         },{
-            title: "天亮以前说再见",
-            author: "曲肖冰",
-            url: "http://music.163.com/song/media/outer/url?id=1336789644.mp3",
-            pic: "http://p2.music.126.net/_P71psYXWlTrEWEuyyN7QA==/109951163770392080.jpg?param=300y300",
-            lrc: "[00:00.000] 作曲 : 康梓峰\n" +
-                "[00:00.699] 作词 : 康梓峰\n" +
-                "[00:02.97]编曲：王柏鸿\n" +
-                "[00:27.60]水花只能开在雨天\n" +
-                "[00:33.44]烟花要绽放在黑夜\n" +
-                "[00:39.51]雪花多舍不得冬天\n" +
-                "[00:45.54]像我舍不得和说你再见\n" +
-                "[00:51.40]谎言并不代表欺骗\n" +
-                "[00:57.46]诺言也不一定兑现\n" +
-                "[01:03.43]誓言就都留给时间\n" +
-                "[01:09.49]就请把从前留在今天\n" +
-                "[01:16.31]天亮以前说再见\n" +
-                "[01:19.14]笑着泪流满面\n" +
-                "[01:22.17]去迎接\n" +
-                "[01:23.24]应该你的\n" +
-                "[01:25.21]更好的明天\n" +
-                "[01:28.19]昙花若只一现\n" +
-                "[01:31.13]更要开的耀眼\n" +
-                "[01:34.21]别回头去拥有\n" +
-                "[01:36.50]属于你更好的世界\n" +
-                "[01:40.24]天亮以前说再见\n" +
-                "[01:43.12]让我留在今天\n" +
-                "[01:46.31]去保护\n" +
-                "[01:47.22]我和你的\n" +
-                "[01:49.19]最好的夏天\n" +
-                "[01:52.08]情丝若水三千\n" +
-                "[01:55.17]只取一瓢眷恋\n" +
-                "[01:57.75]当你来过的纪念\n" +
-                "[02:03.57]水花只能开在雨天\n" +
-                "[02:09.49]烟花要绽放在黑夜\n" +
-                "[02:15.40]雪花多舍不得冬天\n" +
-                "[02:21.37]像我舍不得和说你再见\n" +
-                "[02:27.39]谎言并不代表欺骗\n" +
-                "[02:33.46]诺言也不一定兑现\n" +
-                "[02:39.43]誓言就都留给时间\n" +
-                "[02:45.35]就请把从前留在今天\n" +
-                "[02:52.29]天亮以前说再见\n" +
-                "[02:55.22]笑着泪流满面\n" +
-                "[02:58.31]去迎接\n" +
-                "[02:59.27]应该你的\n" +
-                "[03:01.24]更好的明天\n" +
-                "[03:04.28]昙花若只一现\n" +
-                "[03:07.16]更要开的耀眼\n" +
-                "[03:09.84]别回头去拥有\n" +
-                "[03:12.48]属于你更好的世界\n" +
-                "[03:16.07]天亮以前说再见\n" +
-                "[03:19.26]让我留在今天\n" +
-                "[03:22.39]去保护\n" +
-                "[03:23.36]我和你的\n" +
-                "[03:25.22]最好的夏天\n" +
-                "[03:28.26]情丝若水三千\n" +
-                "[03:31.24]只取一瓢眷恋\n" +
-                "[03:33.92]当你来过的纪念\n" +
-                "[03:55.33]录音：浔浔\n" +
-                "[03:56.68]缩混：张栩赫（Ethan）\n" +
-                "[03:57.99]和声：Kent王健\n" +
-                "[03:58.29]和声编写：Kent王健\n" +
-                "[03:59.59]制作人：浔浔\n" +
-                "[04:00.85]配唱制作人：浔浔\n" +
-                "[04:01.16]录音室：1803 Studio\n" +
-                "[04:02.52]混音室：Hot Music Studio\n" +
-                "[04:03.87]制作团队：KingStar音乐社团/柏鸿工作室\n" +
-                "[04:04.17]企划营销：梦童娱乐\n" +
-                "[04:05.64]监制：三千\n" +
-                "[04:06.25]ＯＰ：千和世纪\n"
-        },{
             title: "起风了",
             author: "买辣椒也用券",
             url: "http://music.163.com/song/media/outer/url?id=1330348068.mp3",
@@ -565,59 +553,6 @@
                 "[04:46.760] 发行公司：Negia Entertainment Inc.\n" +
                 "[04:47.476] 特别支持：中村光雄(Mitsuo Nakamura)\n" +
                 "[04:51.019]"
-        },{
-            title: "遥远的你",
-            author: "不靠谱组合",
-            url: "http://music.163.com/song/media/outer/url?id=1333192765.mp3",
-            pic: "http://p1.music.126.net/j_MOk-u1iEtYWHs-QId41Q==/109951163703802494.jpg?param=300y300",
-            lrc: "[00:00.000] 作曲 : 王明明\n" +
-                "[00:00.015] 作词 : 王明明/李亚然\n" +
-                "[00:00.46]编曲：明锐\n" +
-                "[00:02.08]七月的风 八月的雨\n" +
-                "[00:05.76]卑微的我喜欢遥远的你\n" +
-                "[00:10.37]你的过去 无法参与\n" +
-                "[00:16.29]但我还是 喜欢你\n" +
-                "[00:23.36]\n" +
-                "[00:31.31]眼角闪起的泪光\n" +
-                "[00:34.96]无边无际地游荡\n" +
-                "[00:39.02]眉下的一记荒唐\n" +
-                "[00:43.18]庸俗地写在脸上\n" +
-                "[00:47.31]犹如一缕阳光\n" +
-                "[00:51.27]但却觉得感伤\n" +
-                "[00:55.77]记忆挥散不去\n" +
-                "[00:59.61]却藏进了 我的诗句\n" +
-                "[01:07.09]七月的风 八月的雨\n" +
-                "[01:10.99]卑微的我喜欢遥远的你\n" +
-                "[01:15.09]你还未来 怎敢老去\n" +
-                "[01:19.29]未来的我和你奉陪到底\n" +
-                "[01:23.37]你若同意 我一定去\n" +
-                "[01:27.46]可你并不在意我的出席\n" +
-                "[01:31.44]你的过去 无法参与\n" +
-                "[01:36.50]但我还是 喜欢你\n" +
-                "[01:43.88]\n" +
-                "[02:04.96]我有一把钥匙\n" +
-                "[02:08.83]能解开你的故事\n" +
-                "[02:12.79]单纯的像个孩子\n" +
-                "[02:16.73]偏藏进了 我的诗句\n" +
-                "[02:24.46]七月的风 八月的雨\n" +
-                "[02:28.29]卑微的我喜欢遥远的你\n" +
-                "[02:32.48]你还未来 怎敢老去\n" +
-                "[02:36.61]未来的我和你奉陪到底\n" +
-                "[02:40.59]你若同意 我一定去\n" +
-                "[02:44.65]可你并不在意我的出席\n" +
-                "[02:48.77]你的过去 无法参与\n" +
-                "[02:53.59]但我还是 喜欢你\n" +
-                "[03:01.87]但我还是 喜欢你\n" +
-                "[03:11.973]\n" +
-                "[03:15.673] 制作人：明锐\n" +
-                "[03:16.374] 混音：廖国钺\n" +
-                "[03:17.057] 吉他：齐成刚\n" +
-                "[03:17.723] 和声编写：廖国钺\n" +
-                "[03:18.407] 和声：不靠谱组合\n" +
-                "[03:19.140] 监制：张雯杰\n" +
-                "[03:19.862] 制作公司：Hikoon Music\n" +
-                "[03:20.573] 发行公司：鲸鱼向海（北京）文化有限公司\n"
-
         },{
             title: "尘土",
             author: "安朕宇",
@@ -912,7 +847,7 @@
     script3.opacity = '0.7';//透明度
     script3.zIndex = '-2';
     script3.count = '200';
-    script3.src = '//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js';
+    script3.src = '\\js\\canvas-nest.min.js';
     
     $('body').append(script1);
     $('body').append(script3);
